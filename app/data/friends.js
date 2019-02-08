@@ -30,6 +30,22 @@ var friendsData = [
          4,
          1
       ]
+   },
+   {
+      "name": "Elder Toguro",
+      "photo": "https://vignette.wikia.nocookie.net/slime-lovers/images/4/4b/Elder_Toguro.png/revision/latest?cb=20101220130439",
+      "scores": [
+         1,
+         1,
+         1,
+         1,
+         1,
+         1,
+         2,
+         1,
+         1,
+         1
+      ]
    }
 ];
 
