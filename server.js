@@ -7,9 +7,12 @@ var PORT = 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static('./app/public'));
+app.use(express.static('./app/public/css'));
+app.use(express.static('./app/public/javascript'));
 
-require("./routing/apiRoutes")(app);
-require("./routing/htmlRoutes")(app);
+require("./app/routing/apiRoutes.js")(app);
+require("./app/routing/htmlRoutes.js")(app);
 
 
 app.listen(PORT, function () {

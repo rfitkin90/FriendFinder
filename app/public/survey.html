@@ -10,43 +10,161 @@
    <link rel="stylesheet" href="./style.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-   <script src="javascript/reserve.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+   <script src="./javascript/survey.js"></script>
 </head>
 
 <body>
    <div class="container">
+      <!-- Jumbotron -->
       <div class="jumbotron">
          <h1>Friend Finder</h1>
-         <h4>Make your reservation</h4>
-         <a class="btn btn-primary" id="tables-btn" href="/tables">View Tables</a>
-         <a class="btn btn-primary" id="reservation-btn" href="/">Home</a>
+         <h4>Answer the survey to to find a match.</h4>
+         <a class="btn btn-primary" id="home-btn" href="/">Home</a>
       </div>
 
-      <form id="reserve-form">
-         <h2>Table Reservation</h2>
+      <!-- Survey form -->
+      <form id="survey-form">
+         <h2>On a scale of 1 to 5...</h2>
 
+         <!-- Questions -->
          <div class="form-group">
-            <label for="">Name</label>
-            <input class="form-control" id="reserve-form-name" placeholder="" name="">
+            <label for="answer-0">How much do you like pizza?</label>
+            <select class="form-control" id="answer-0">
+               <option>1</option>
+               <option>2</option>
+               <option>3</option>
+               <option>4</option>
+               <option>5</option>
+            </select>
          </div>
 
          <div class="form-group">
-            <label for="">Phone Number</label>
-            <input class="form-control" id="reserve-form-phone" placeholder="" name="">
+            <label for="answer-1">How much do you like burritos?</label>
+            <select class="form-control" id="answer-1">
+               <option>1</option>
+               <option>2</option>
+               <option>3</option>
+               <option>4</option>
+               <option>5</option>
+            </select>
          </div>
 
          <div class="form-group">
-            <label for="">Email:</label>
-            <input class="form-control" id="reserve-form-email" placeholder="" name="">
+            <label for="answer-2">How much do you like hamburgers?</label>
+            <select class="form-control" id="answer-2">
+               <option>1</option>
+               <option>2</option>
+               <option>3</option>
+               <option>4</option>
+               <option>5</option>
+            </select>
          </div>
 
          <div class="form-group">
-            <label for="">Unique ID</label>
-            <input class="form-control" id="reserve-form-id" placeholder="" name="">
+            <label for="answer-3">How much do you like watching movies?</label>
+            <select class="form-control" id="answer-3">
+               <option>1</option>
+               <option>2</option>
+               <option>3</option>
+               <option>4</option>
+               <option>5</option>
+            </select>
          </div>
 
-         <button type="submit" class="btn btn-primary" id="reservation-submit">Submit</button>
+         <div class="form-group">
+            <label for="answer-4">How much do you like playing video games?</label>
+            <select class="form-control" id="answer-4">
+               <option>1</option>
+               <option>2</option>
+               <option>3</option>
+               <option>4</option>
+               <option>5</option>
+            </select>
+         </div>
+
+         <div class="form-group">
+            <label for="answer-5">How much do you like nature?</label>
+            <select class="form-control" id="answer-5">
+               <option>1</option>
+               <option>2</option>
+               <option>3</option>
+               <option>4</option>
+               <option>5</option>
+            </select>
+         </div>
+
+         <div class="form-group">
+            <label for="answer-6">How much do you like science?</label>
+            <select class="form-control" id="answer-6">
+               <option>1</option>
+               <option>2</option>
+               <option>3</option>
+               <option>4</option>
+               <option>5</option>
+            </select>
+         </div>
+
+         <div class="form-group">
+            <label for="answer-7">How much do you like/watch sports?</label>
+            <select class="form-control" id="answer-7">
+               <option>1</option>
+               <option>2</option>
+               <option>3</option>
+               <option>4</option>
+               <option>5</option>
+            </select>
+         </div>
+
+         <div class="form-group">
+            <label for="answer-8">How often do go vacationing?</label>
+            <select class="form-control" id="answer-8">
+               <option>1</option>
+               <option>2</option>
+               <option>3</option>
+               <option>4</option>
+               <option>5</option>
+            </select>
+         </div>
+
+         <div class="form-group">
+            <label for="answer-9">How much do you use social media?</label>
+            <select class="form-control" id="answer-9">
+               <option>1</option>
+               <option>2</option>
+               <option>3</option>
+               <option>4</option>
+               <option>5</option>
+            </select>
+         </div>
+
+         <!-- Submit button -->
+         <button type="submit" class="btn btn-primary" id="survey-submit">Submit</button>
       </form>
+
+      <!-- Suggested friend modal -->
+      <div class="modal" id="suggested-friend-modal">
+         <div class="modal-dialog">
+            <div class="modal-content">
+
+               <!-- Modal Header -->
+               <div class="modal-header">
+                  <h4 class="modal-title">Your New friend!</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+               </div>
+
+               <!-- Modal body -->
+               <div class="modal-body" id="suggested-friend-modal-body"></div>
+
+               <!-- Modal footer -->
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+               </div>
+
+            </div>
+         </div>
+      </div>
+
 
    </div>
 

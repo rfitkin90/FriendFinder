@@ -1,0 +1,74 @@
+$(document).ready(function () {
+
+    // array to hold answers
+    var answersArr = [];
+    // var to store potential friend array locally
+    var potentialFriends;
+    // object to store score deltas for each potential friend
+    // var scoreDeltas = {};
+    var scoreDeltas = [];
+
+    $.get("/api/friends/", function (data) {
+        potentialFriends = data;
+    });
+
+    // user submits survey answers
+    $('#survey-submit').on('click', function (e) {
+        e.preventDefault();
+
+        // push the answers to the answersArr
+        for (var i = 0; i < 10; i++) {
+            var answer = Number($(`#answer-${i.toString()}`).val());
+            answersArr.push(answer);
+        }
+
+        console.log(potentialFriends);
+
+        // for each potential friend...
+        potentialFriends.forEach(elem => {
+            // push a new object to scoreDeltas array with a name key and total delta key
+            scoreDeltas.push({
+                name: elem.name,
+                totalDelta: 0
+            });
+            // for each answer that potential friend gave...
+            for (var i = 0; i < elem.scores.length; i++) {
+                // find the delta between yours and his/her score
+                var delta = Math.abs(elem.scores[i] - answersArr[i]);
+                // add each delta to the value of the object.key pair you just pushed to scoreDeltas array
+                scoreDeltas[scoreDeltas.length - 1].totalDelta += delta;
+            }
+        });
+
+        // sort the score deltas array based on the scoreDelta property value
+        function compare(a, b) {
+            if (a.totalDelta < b.totalDelta)
+                return -1;
+            if (a.totalDelta > b.totalDelta)
+                return 1;
+            return 0;
+        }
+        scoreDeltas.sort(compare);
+
+        console.log(scoreDeltas);
+
+        // set user with the lowest delta's name to variable
+        var selectedFriend = scoreDeltas[0].name;
+
+        // find the index in the potentialFriends array with that user's name
+        var i = potentialFriends.findIndex(elem => elem.name === selectedFriend);
+
+        // show the modal and set its html content to the chosen friend's name/picture
+        $('#survey-submit').on('click', function () {
+            // $('#suggested-friend-modal-body').html(`
+            // <p>${potentialFriends[i].name}</p>
+            // <img src="${potentialFriends[i].photo}" alt="${potentialFriends[i].name}">
+            // `);
+            $('#suggested-friend-modal').modal('show');
+        });
+
+
+    });
+
+
+});
