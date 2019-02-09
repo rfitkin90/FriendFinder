@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-
     // var to store potential friend array locally
     var potentialFriends;
     $.get("/api/friends/", function (data) {
