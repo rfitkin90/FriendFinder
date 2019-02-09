@@ -15,3 +15,21 @@
 #survey-form {
     margin-bottom: 20px;
 }
+
+.card-header {
+    background-color: #4aaaa5;
+    color: white;
+}
+
+.btn {
+    background-color: #4aaaa5;
+    border-color: #4aaaa5;
+}
+
+.jumbotron h4 {
+    margin-bottom: 20px;
+}
+
+.card {
+    margin-bottom: 20px;
+}
