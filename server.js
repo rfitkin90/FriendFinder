@@ -1,5 +1,6 @@
 var express = require('express');
 var path = require('path');
+var friendsRoute = require("./app/routing/apiRoutes");
 
 var app = express();
 
@@ -11,9 +12,11 @@ app.use(express.static('./app/public'));
 app.use(express.static('./app/public/css'));
 app.use(express.static('./app/public/javascript'));
 
-require("./app/routing/apiRoutes.js")(app);
+// NOT THE BEST WAY OF HANDLING
+// require("./app/routing/apiRoutes.js")(app);
 require("./app/routing/htmlRoutes.js")(app);
-
+// BETTER WAY TO HANDLE THIS
+app.use(friendsRoute);
 
 app.listen(PORT, function () {
    console.log(`App listening on PORT: ${PORT}`);
