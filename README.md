@@ -1,5 +1,7 @@
 # FriendFinder
 
+Provides the user with a survey to find friends in the database with similar interests.
+
 ### Instructions
 
 1. After navigating to the survey page, you will answer 10 questions with a number 1-5 based on how strongly you feel about the subject.
